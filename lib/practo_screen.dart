@@ -1,3 +1,4 @@
+import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:practo/explore_screen.dart';
@@ -5,7 +6,13 @@ import 'package:practo/string_constants/string_constants.dart';
 
 import 'continue_screen.dart';
 
-//import 'package:practo/string_constants/string_constants.dart';
+final List<String> imgList = [
+  'assets/doctors.png',
+  'assets/second.png',
+  'assets/third.png',
+  'assets/forth.png',
+];
+
 class PractoScreen extends StatelessWidget {
   const PractoScreen({Key? key}) : super(key: key);
 
@@ -31,9 +38,35 @@ class PractoScreen extends StatelessWidget {
                           color: Colors.white),
                     ),
                     SizedBox(
-                      height: 30,
+                      height: 10,
                     ),
-                    Image.asset('assets/doctors.png', height: 150, width: 120),
+                    CarouselSlider(
+                      options: CarouselOptions(
+                          height: 250,
+                          autoPlay: true,
+                          enableInfiniteScroll: false,
+                          enlargeCenterPage: true,
+
+                      ),
+
+                      items: imgList.map((items) {
+                        return Builder(builder: (BuildContext context) {
+                          return Padding(
+                            padding: const EdgeInsets.symmetric(
+                                horizontal: 10, vertical: 10),
+                            child: Container(
+                              decoration: BoxDecoration(borderRadius: BorderRadius.circular(20.0)),
+                              alignment: Alignment.center,
+                              margin: EdgeInsets.symmetric(horizontal: 10),
+                              child: ClipRRect(
+                                borderRadius: BorderRadius.circular(16),
+                                  child: Image.asset(items,fit: BoxFit.cover,height: 250,width: 300,)),
+                               
+                            ),
+                          );
+                        });
+                      }).toList(),
+                    ),
                     SizedBox(
                       height: 10,
                     ),

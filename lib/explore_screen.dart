@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:practo/rahul_screen.dart';
+import 'package:practo/search_screen.dart';
 
 class ExploreScreen extends StatelessWidget {
   const ExploreScreen({Key? key}) : super(key: key);
@@ -255,7 +256,7 @@ class ExploreScreen extends StatelessWidget {
           bottomNavigationBar: InkWell(
             onTap: () {
               Navigator.of(context).push(
-                  MaterialPageRoute(builder: (context) => RahulScreen()));
+                  MaterialPageRoute(builder: (context) => SearchScreen()));
             },
             child: Container(
               height: 60,
